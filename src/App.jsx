@@ -1,7 +1,41 @@
 import "./App.css";
 import styled from "styled-components";
 import Skills from "./components/Skills";
+const skillsArr = [
+  {
+    skill: "HTML + CSS",
+    level: "advanced",
+    color: "#EA2A01",
+  },
+  {
+    skill: "Javascript",
+    level: "intermediate",
+    color: "#15a776",
+  },
+  {
+    skill: "Web Design",
+    level: "intermediate",
+    color: "#fffb0c",
+  },
+  {
+    skill: "Git & GitHub",
+    level: "intermediate",
+    color: "#df08bb",
+  },
+  {
+    skill: "React",
+    level: "intermediate",
+    color: "#0204a8",
+  },
+  {
+    skill: "Svelte",
+    level: "starter",
+    color: "#751f23",
+  },
+];
 function App() {
+  const skillArr2 = skillsArr;
+
   return (
     <Card>
       <img src="/assets/profile.jpg" alt="Profile Picture" />
@@ -15,12 +49,15 @@ function App() {
       </Intro>
 
       <SkillsContainer>
-        <Skills text={"HTML+CSS 💪"} />
-        <Skills bgColor={"yellow"} text={"JavaScript 💪"} />
-        <Skills bgColor={"green"} text={"Web Design 💪"} />
-        <Skills bgColor={"red"} text={"Git & GitHub 👍"} />
-        <Skills bgColor={"lightBlue"} text={"React 💪"} />
-        <Skills bgColor={"purple"} text={"Svelte 👶"} />
+        {skillArr2.map((skill) => {
+          return <Skills skillsObj={skill} key={skill.skill} />;
+        })}
+        {/* <Skills bgColor={"lightblue"} text={"HTML+CSS 💪"} />
+        <Skills bgColor={"yellow"} text={"JavaScript "} emoji={"💪"} />
+        <Skills bgColor={"green"} text={"Web Design "} emoji={"💪"} />
+        <Skills bgColor={"red"} text={"Git & GitHub "} emoji={"👍"} />
+        <Skills bgColor={"lightBlue"} text={"React "} emoji={"💪"} />
+        <Skills bgColor={"purple"} text={"Svelte "} emoji={"👶"} /> */}
       </SkillsContainer>
     </Card>
   );
